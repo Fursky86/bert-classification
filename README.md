@@ -14,3 +14,5 @@ pip install -r requirements.txt
 python train.py --model hfl/chinese-bert-wwm-ext --batch_size 8 --epochs 3
 python train.py --model hfl/chinese-roberta-wwm-ext --batch_size 8 --epochs 3
 ```
+## 4.不同参数结果展示
+![image](https://github.com/user-attachments/assets/ddae453c-2272-42ae-b23e-7d9a7c505ea5)
