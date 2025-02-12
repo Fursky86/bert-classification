@@ -7,8 +7,10 @@
 安装必要依赖：
 ```bash
 pip install -r requirements.txt
+```
 
 ## 3. 运行示例
+```bash
 python train.py --model hfl/chinese-bert-wwm-ext --batch_size 8 --epochs 3
 python train.py --model hfl/chinese-roberta-wwm-ext --batch_size 8 --epochs 3
-
+```
