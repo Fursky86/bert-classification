@@ -11,8 +11,8 @@ pip install -r requirements.txt
 
 ## 3. 运行示例
 ```bash
-python train.py --model hfl/chinese-bert-wwm-ext --batch_size 8 --epochs 3
-python train.py --model hfl/chinese-roberta-wwm-ext --batch_size 8 --epochs 3
+python train.py --model hfl/chinese-bert-wwm-ext --batch_size 8 --epochs 3 --learning_rate 2e-5 --gradient_accumulation_steps 16 --warmup_ratio 0.1 --lr_scheduler_type linear
+python train.py --model hfl/chinese-roberta-wwm-ext --batch_size 8 --epochs 3 --learning_rate 2e-5 --gradient_accumulation_steps 16 --warmup_ratio 0.1 --lr_scheduler_type linear
 ```
 
 ## 4.BERT vs RoBERTa 训练对比
