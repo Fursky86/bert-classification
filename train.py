@@ -17,8 +17,8 @@ parser.add_argument("--batch_size", type=int, default=8, help="Batch size")
 parser.add_argument("--epochs", type=int, default=3, help="训练轮数")
 parser.add_argument("--learning_rate", type=float, default=2e-5, help="learning_rate")
 parser.add_argument("--gradient_accumulation_steps", type=int, default=16, help="梯度累积步长")
-parser.add_argument("--warmup_ratio", type=float, default=0.1, help="Warmup ratio")  # 
-parser.add_argument("--lr_scheduler_type", type=str, default="linear", help="学习率调度策略")  # 
+parser.add_argument("--warmup_ratio", type=float, default=0.1, help="Warmup ratio")  
+parser.add_argument("--lr_scheduler_type", type=str, default="linear", help="学习率调度策略")  
 args = parser.parse_args()
 
 # 加载 Tokenizer
@@ -50,8 +50,8 @@ training_args = TrainingArguments(
     gradient_accumulation_steps=args.gradient_accumulation_steps,
     fp16=True,
     learning_rate=args.learning_rate,
-    warmup_ratio=args.warmup_ratio,  # 
-    lr_scheduler_type=args.lr_scheduler_type,  # 
+    warmup_ratio=args.warmup_ratio,  
+    lr_scheduler_type=args.lr_scheduler_type,  
 )
 
 # 评估函数
