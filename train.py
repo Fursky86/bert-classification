@@ -6,11 +6,8 @@ from datasets import load_dataset
 from transformers import AutoTokenizer, AutoModelForSequenceClassification, TrainingArguments, Trainer
 import evaluate
 
-
-##禁用wandb
+# 禁用 wandb
 os.environ["WANDB_DISABLED"] = "true"
-
-
 
 # 解析命令行参数
 import argparse
@@ -20,6 +17,8 @@ parser.add_argument("--batch_size", type=int, default=8, help="Batch size")
 parser.add_argument("--epochs", type=int, default=3, help="训练轮数")
 parser.add_argument("--learning_rate", type=float, default=2e-5, help="learning_rate")
 parser.add_argument("--gradient_accumulation_steps", type=int, default=16, help="梯度累积步长")
+parser.add_argument("--warmup_ratio", type=float, default=0.1, help="Warmup ratio")  # 
+parser.add_argument("--lr_scheduler_type", type=str, default="linear", help="学习率调度策略")  # 
 args = parser.parse_args()
 
 # 加载 Tokenizer
@@ -38,7 +37,7 @@ tokenized_dataset = dataset.map(lambda x: tokenizer(x["text_a"], padding="max_le
 # 加载模型
 model = AutoModelForSequenceClassification.from_pretrained(args.model, num_labels=2)
 
-# 训练参数
+# 训练参数（）
 training_args = TrainingArguments(
     output_dir="./results",
     per_device_train_batch_size=args.batch_size,
@@ -51,6 +50,8 @@ training_args = TrainingArguments(
     gradient_accumulation_steps=args.gradient_accumulation_steps,
     fp16=True,
     learning_rate=args.learning_rate,
+    warmup_ratio=args.warmup_ratio,  # 
+    lr_scheduler_type=args.lr_scheduler_type,  # 
 )
 
 # 评估函数
