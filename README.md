@@ -17,9 +17,9 @@ python train.py --model hfl/chinese-roberta-wwm-ext --batch_size 8 --epochs 3 --
 
 ## 4.BERT vs RoBERTa 训练对比
 
-| 模型     | 准确率 | 训练时间 | 显存最高占用 | batch_size |
-|----------|--------|----------|-------------|------------|
-| BERT     | 93.5%  | 251.24 秒 | 4.60 GB     | 8          |
-| RoBERTa  | 94.3%  | 196.05 秒 | 6.57 GB     | 8          |
-| RoBERTa  | 93.2%  | 158.30 秒 | 8.15 GB     | 16         |
-| RoBERTa  | 91.7%  | 138.73 秒 | 11.31 GB    | 32         |
+| 模型     | 准确率 | 训练时间 | 显存最高占用 | batch_size |  epochs  |learing_rate|gradient_accumulation_steps|warmup_ratio|lr_scheduler_type|
+|----------|--------|----------|-------------|------------|--------|------------|----------------------------|------------|--------------|
+| BERT     | 94.0%  | 188.90 秒 | 3.39 GB     | 8         |3       |2e-5         |                   16      |    0.1     |linear        |
+| RoBERTa  | 94.3%  | 188.62 秒 | 3.40 GB     | 8         |3       |2e-5         |                   16      |    0.1     |linear        |
+| RoBERTa  | 93.2%  | 158.30 秒 | 8.15 GB     | 16        |
+| RoBERTa  | 91.7%  | 138.73 秒 | 11.31 GB    | 32        |
